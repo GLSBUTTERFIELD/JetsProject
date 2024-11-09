@@ -34,7 +34,7 @@ public class JetsApplication {
 				break;
 
 			case "4":
-				// TODO: call findLongestRange from Airfield
+				airField.getLongestRange();
 				break;
 
 			case "5":
@@ -80,7 +80,5 @@ public class JetsApplication {
 		System.out.println(". 9. Exit the program   \t\t.");
 		System.out.println(".........................................\n");
 	}
-	
-	
 
 }

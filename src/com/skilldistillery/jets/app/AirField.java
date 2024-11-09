@@ -73,17 +73,27 @@ public class AirField {
 			}
 
 		}
-		System.out.println("The fastet jet in our fleet currently is " + fastestJet.getModel() + " with top speeds of "
-				+ fastestJet.getSpeedInMPH() + " MPH and Mach" + fastestJet.getSpeedInMach());
+		System.out.println("The fastet jet in our fleet currently is " + fastestJet + ".\nThe " 
+		+ fastestJet.getModel() + " has a top speed of Mach" + fastestJet.getSpeedInMach());
+	}
+	
+	
+	public void getLongestRange() {
+		Jet jetWithLongestRange = null;
+		for (int i = 0; i < fleet.size(); i++) {
+			if (jetWithLongestRange == null) {
+				jetWithLongestRange = fleet.get(i);
+			} else if (fleet.get(i).getRange() > jetWithLongestRange.getRange()) {
+				jetWithLongestRange = fleet.get(i);
+			}
+
+		}
+		System.out.println("The jet with the longest range in our fleet currently is " + jetWithLongestRange + ".");
 	}
 
 }
 //TODO: public methods for handling Jets
 
-
-// view jet with longest range
-	// iterate over fleet and compare range
-	// longestRange variable declared outside of loop
 // load all Cargo Jets
 	// iterate through fleet and use instanceof to see if I'm a Cargo Jet
 	// call loadCargo() method
