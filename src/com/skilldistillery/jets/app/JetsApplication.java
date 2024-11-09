@@ -2,6 +2,8 @@ package com.skilldistillery.jets.app;
 
 import java.util.Scanner;
 
+import com.skilldistillery.jets.entities.Jet;
+
 public class JetsApplication {
 
 	private AirField airField = new AirField();
@@ -38,19 +40,37 @@ public class JetsApplication {
 				break;
 
 			case "5":
-				// TODO: call loadCargoJets from Airfield
+				airField.loadCargoJets();
 				break;
 
 			case "6":
-				// TODO: call Dogfight method
+				airField.initiateDogFight();
 				break;
 
 			case "7":
-				// TODO: call addJet method
+				displayJetTypeToAdd();
+				int userJetType = sc.nextInt();
+				System.out.println("Please enter the model: ");
+				String userJetModel = sc.nextLine();
+				System.out.println("Please enter the jet's speed in MPH: ");
+				double userJetSpeed = sc.nextDouble();
+				sc.nextLine();
+				System.out.println("Please enter the jet's range in miles: ");
+				int userJetRange = sc.nextInt();
+				sc.nextLine();
+				System.out.println("Please enter the jet's price: ");
+				long userJetPrice = sc.nextLong();
+
+				airField.addJetToFleet(userJetType, userJetModel, userJetSpeed, userJetRange, userJetPrice);
+
 				break;
 
 			case "8":
-				// TODO: call removeJet
+				airField.listFleet();
+				System.out.println("\nWhich jet would you like to remove from the fleet?\n");
+				int jetToRemove = sc.nextInt();
+				sc.nextLine();
+				airField.removeJetFromFleet(jetToRemove);
 				break;
 
 			case "9":
@@ -79,6 +99,15 @@ public class JetsApplication {
 		System.out.println(". 8. Remove a jet from the fleet   \t.");
 		System.out.println(". 9. Exit the program   \t\t.");
 		System.out.println(".........................................\n");
+	}
+
+	private void displayJetTypeToAdd() {
+		System.out.println("\n.-----------------------------------.");
+		System.out.println("| What type of jet are you adding?  |");
+		System.out.println("| 1. Passenger Jet                  |");
+		System.out.println("| 2. Cargo Jet                      |");
+		System.out.println("| 3. Fighter Jet                    |");
+		System.out.println(".-----------------------------------.\n");
 	}
 
 }

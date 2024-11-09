@@ -15,5 +15,11 @@ public class FighterJet extends Jet implements CombatReady {
 		return "Fighter Jet [model: " + getModel() + ", speedInMPH: " + getSpeedInMPH() + ", range: "
 				+ getRange() + "miles, price: $ " + getPrice() + "]";
 	}
+
+	@Override
+	public void fight() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
