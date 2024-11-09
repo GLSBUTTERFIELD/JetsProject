@@ -68,9 +68,14 @@ public class JetsApplication {
 			case "8":
 				airField.listFleet();
 				System.out.println("\nWhich jet would you like to remove from the fleet?\n");
-				int jetToRemove = sc.nextInt();
-				sc.nextLine();
-				airField.removeJetFromFleet(jetToRemove);
+				int jetToRemove = 0;
+				try {
+					jetToRemove = sc.nextInt();
+					sc.nextLine();
+					airField.removeJetFromFleet(jetToRemove);
+				} catch (Exception e) {
+					System.out.println("Invalid input. Please enter a number 1-" + airField.getSize() + ".");
+				}
 				break;
 
 			case "9":

@@ -51,11 +51,11 @@ public class AirField {
 
 	public void listFleet() {
 		System.out.println("The fleet currently contains: \n");
-		for (int i = 0; i <fleet.size(); i++) {
-			System.out.println((i+1) + ": " + fleet.get(i));
-			
+		for (int i = 0; i < fleet.size(); i++) {
+			System.out.println((i + 1) + ": " + fleet.get(i));
+
 		}
-		}
+	}
 
 	public void fly() {
 		System.out.println("Flying all jets!\n");
@@ -107,32 +107,35 @@ public class AirField {
 			}
 		}
 	}
-	
+
 	public void addJetToFleet(int jetType, String model, double speedInMPH, int range, long price) {
 		if (jetType == 1) {
 //			Passenger Jet
 		}
-		
-		else if (jetType ==2) {
+
+		else if (jetType == 2) {
 //			Cargo Jet
 		}
-		
-		else if (jetType ==3){	
-		// fighter jet	
+
+		else if (jetType == 3) {
+			// fighter jet
 		}
-		
+
 		else {
 			System.out.println("Invalid input. Please enter a number 1-3.");
 		}
-		}
-	
-	
+	}
+
 	public void removeJetFromFleet(int jetToRemove) {
 		fleet.remove(jetToRemove);
 		System.out.println("The jet " + fleet.get(jetToRemove) + " has been removed succesfully from the fleet.");
 	}
-}
 
+	public int getSize() {
+		return fleet.size();
+	}
+
+}
 
 //TODO: public methods for handling Jets
 
@@ -143,9 +146,5 @@ public class AirField {
 	// iterate through fleet and use instanceof to see if I'm a fighter Jet
 	// call fight() method
 // add Jet to fleet
-	// get input from user - type of Jet, model, speed, range, price
-	// AirField.addNewJet();
 	// tell AirField to add to Fleet
-// remove jet from fleet
-	// get input from user - which Jet
-	// find index and remove from list
+
