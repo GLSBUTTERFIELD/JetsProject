@@ -1,6 +1,6 @@
-passenger, "Airbus A380", 638, 9200, 455000000
-cargo, "Lockheed C-5 Galaxy", 518, 5524, 352000000
-fighter, "F-16 Fighting Falcon", 1345, 1260, 75800000
-fighter, "B-2 Stealth Bomber", 628, 6897, 2000000000
-cargo, "Airbus A400M Atlas", 485, 3450, 141000000
-passenger, "Boeing 777X", 652, 8383, 500000000
+passenger, Airbus A380, 638, 9200, 455000000
+cargo, Lockheed C-5 Galaxy, 518, 5524, 352000000
+fighter, F-16 Fighting Falcon, 1345, 1260, 75800000
+fighter, B-2 Stealth Bomber, 628, 6897, 2000000000
+cargo, Airbus A400M Atlas, 485, 3450, 141000000
+passenger, Boeing 777X, 652, 8383, 500000000

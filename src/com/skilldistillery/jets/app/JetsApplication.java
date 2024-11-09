@@ -50,6 +50,7 @@ public class JetsApplication {
 			case "7":
 				displayJetTypeToAdd();
 				int userJetType = sc.nextInt();
+				sc.nextLine();
 				System.out.println("Please enter the model: ");
 				String userJetModel = sc.nextLine();
 				System.out.println("Please enter the jet's speed in MPH: ");
