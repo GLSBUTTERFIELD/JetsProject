@@ -50,48 +50,50 @@ public class AirField {
 	}
 
 	public void listFleet() {
-System.out.println("The fleet currently contains: \n");
+		System.out.println("The fleet currently contains: \n");
 		for (Jet jet : fleet) {
 			System.out.println(jet);
 		}
 	}
-	
-	
+
 	public void fly() {
 		System.out.println("Flying all jets!\n");
 		for (Jet jet : fleet) {
 			jet.fly();
-//			double timeFlying = jet.getRange()/jet.getSpeedInMPH();
-//			System.out.println(jet.getModel() + " flying for " + timeFlying + " hours");
 		}
 	}
-	
+
 	public void findFastestJet() {
-		for (Jet jet : fleet) {
-			
+		Jet fastestJet = null;
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fastestJet == null) {
+				fastestJet = fleet.get(i);
+			} else if (fleet.get(i).getSpeedInMPH() > fastestJet.getSpeedInMPH()) {
+				fastestJet = fleet.get(i);
+			}
+
 		}
+		System.out.println("The fastet jet in our fleet currently is " + fastestJet.getModel() + " with top speeds of "
+				+ fastestJet.getSpeedInMPH() + " MPH and Mach" + fastestJet.getSpeedInMach());
 	}
+
+}
 //TODO: public methods for handling Jets
-	
-	// view fastest jet
-	// iterate over fleet and compare speeds (biggest integer in Array of integers)
-	// fastestJet variable declared outside of loop
-	// view jet with longest range
+
+
+// view jet with longest range
 	// iterate over fleet and compare range
 	// longestRange variable declared outside of loop
-	// load all Cargo Jets
+// load all Cargo Jets
 	// iterate through fleet and use instanceof to see if I'm a Cargo Jet
 	// call loadCargo() method
-	// Dogfight
+// Dogfight
 	// iterate through fleet and use instanceof to see if I'm a fighter Jet
 	// call fight() method
-	// add Jet to fleet
+// add Jet to fleet
 	// get input from user - type of Jet, model, speed, range, price
 	// AirField.addNewJet();
 	// tell AirField to add to Fleet
-	// remove jet from fleet
+// remove jet from fleet
 	// get input from user - which Jet
 	// find index and remove from list
-	// quit
-	// exit program
-}

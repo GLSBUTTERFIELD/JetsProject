@@ -30,7 +30,7 @@ public class JetsApplication {
 				break;
 
 			case "3":
-				// TODO: call findFastestJet from Airfield class
+				airField.findFastestJet();
 				break;
 
 			case "4":

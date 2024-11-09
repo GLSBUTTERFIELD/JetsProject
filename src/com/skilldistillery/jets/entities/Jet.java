@@ -50,10 +50,10 @@ public abstract class Jet {
 
 	public void fly() {
 		double timeFlying = this.range/this.speedInMPH;
-		System.out.println(this.model + " flying for " + timeFlying + " hours");
+		System.out.println(this.model + " flying for " + timeFlying + " hours, top speed of Mach " + getSpeedInMach());
 	}
 	
-	public double getSpeedInMach (double speedInMPH) {
+	public double getSpeedInMach () {
 		double speedInMach = this.speedInMPH / 767.3;
 		return speedInMach;
 	}
