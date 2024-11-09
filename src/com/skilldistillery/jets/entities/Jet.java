@@ -49,19 +49,17 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-		//override in each subclass
-		System.out.println(this.model + " flying");
-		//use range and speed to determine how long the jet can fly
+		double timeFlying = this.range/this.speedInMPH;
+		System.out.println(this.model + " flying for " + timeFlying + " hours");
 	}
 	
 	public double getSpeedInMach (double speedInMPH) {
-		return 0.0;
-		//TODO: find MPH conversion to Mach
-		//subclasses do not override this
+		double speedInMach = this.speedInMPH / 767.3;
+		return speedInMach;
 	}
 	
 	@Override
 	public String toString() {
-		return "Jet [model: " + model + ", speedInMPH: " + speedInMPH + ", range: " + range + " miles" + ", price: $" + price + "]";
+		return "Passenger Jet [model: " + model + ", speedInMPH: " + speedInMPH + ", range: " + range + " miles" + ", price: $" + price + "]";
 	}
 }

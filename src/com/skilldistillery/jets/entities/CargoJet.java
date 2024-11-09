@@ -11,6 +11,12 @@ public class CargoJet extends Jet implements CargoCarrier {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "Cargo Jet [model: " + getModel() + ", speedInMPH: " + getSpeedInMPH() + ", range: "
+				+ getRange() + "miles, price: $" + getPrice() + "]";
+	}
+
 
 	
 }

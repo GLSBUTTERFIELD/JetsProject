@@ -13,52 +13,66 @@ import com.skilldistillery.jets.entities.PassengerJet;
 
 public class AirField {
 
-	private static List<Jet> fleet = new ArrayList<>();
+	private List<Jet> fleet = new ArrayList<>();
 
 	public AirField() {
 		loadJetsFromFile("jets.txt");
 	}
 
-	private List<Jet> loadJetsFromFile(String fileName) {
-		try ( BufferedReader bufIn = new BufferedReader(new FileReader(fileName)) ) {
-			  String line;
-			  
-			  while ((line = bufIn.readLine()) != null) {
-			  String [] jetData =line.split(", ");
-				
-			  if (jetData[0].equalsIgnoreCase("fighter")) {
-				  Jet j = new FighterJet(jetData[1], Double.parseDouble(jetData[2]), Integer.parseInt(jetData[3]), Long.parseLong(jetData[4]));
-				  fleet.add(j);
-			  }
-			  
-			  if (jetData[0].equalsIgnoreCase("cargo")) {
-				  Jet j = new CargoJet(jetData[1], Double.parseDouble(jetData[2]), Integer.parseInt(jetData[3]), Long.parseLong(jetData[4]));
-				  fleet.add(j);
-			  }
+	private void loadJetsFromFile(String fileName) {
+		try (BufferedReader bufIn = new BufferedReader(new FileReader(fileName))) {
+			String line;
 
-			  if (jetData[0].equalsIgnoreCase("passenger")) {
-				  Jet j = new PassengerJet(jetData[1], Double.parseDouble(jetData[2]), Integer.parseInt(jetData[3]), Long.parseLong(jetData[4]));
-				  fleet.add(j);
-			  }
+			while ((line = bufIn.readLine()) != null) {
+				String[] jetData = line.split(", ");
+
+				if (jetData[0].equalsIgnoreCase("fighter")) {
+					Jet j = new FighterJet(jetData[1], Double.parseDouble(jetData[2]), Integer.parseInt(jetData[3]),
+							Long.parseLong(jetData[4]));
+					fleet.add(j);
+				}
+
+				if (jetData[0].equalsIgnoreCase("cargo")) {
+					Jet j = new CargoJet(jetData[1], Double.parseDouble(jetData[2]), Integer.parseInt(jetData[3]),
+							Long.parseLong(jetData[4]));
+					fleet.add(j);
+				}
+
+				if (jetData[0].equalsIgnoreCase("passenger")) {
+					Jet j = new PassengerJet(jetData[1], Double.parseDouble(jetData[2]), Integer.parseInt(jetData[3]),
+							Long.parseLong(jetData[4]));
+					fleet.add(j);
+				}
 			}
+		} catch (IOException e) {
+			System.err.println(e);
 		}
-		catch (IOException e) {
-			  System.err.println(e);
-			}
-		
-		return fleet;
 	}
 
-
-public static void listFleet() {
-	System.out.println(fleet);
-	return;
-}
+	public void listFleet() {
+System.out.println("The fleet currently contains: \n");
+		for (Jet jet : fleet) {
+			System.out.println(jet);
+		}
+	}
+	
+	
+	public void fly() {
+		System.out.println("Flying all jets!\n");
+		for (Jet jet : fleet) {
+			jet.fly();
+//			double timeFlying = jet.getRange()/jet.getSpeedInMPH();
+//			System.out.println(jet.getModel() + " flying for " + timeFlying + " hours");
+		}
+	}
+	
+	public void findFastestJet() {
+		for (Jet jet : fleet) {
+			
+		}
+	}
 //TODO: public methods for handling Jets
-	// list fleet
-	// iterate over fleet and call each subclasses toString
-	// fly all jets
-	// iterate over fleet and call each jet's fly method()
+	
 	// view fastest jet
 	// iterate over fleet and compare speeds (biggest integer in Array of integers)
 	// fastestJet variable declared outside of loop

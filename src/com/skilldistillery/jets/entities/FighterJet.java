@@ -8,10 +8,12 @@ public class FighterJet extends Jet implements CombatReady {
 
 	public FighterJet(String model, double speedInMPH, int range, long price) {
 		super(model, speedInMPH, range, price);
-		// TODO Auto-generated constructor stub
 	}
-	
-	
-//TODO: create fight method()
+
+	@Override
+	public String toString() {
+		return "Fighter Jet [model: " + getModel() + ", speedInMPH: " + getSpeedInMPH() + ", range: "
+				+ getRange() + "miles, price: $ " + getPrice() + "]";
+	}
 	
 }

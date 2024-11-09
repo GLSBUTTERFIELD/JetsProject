@@ -16,17 +16,17 @@ public class JetsApplication {
 	private void launch() {
 
 		System.out.println("Welcome to the Skill Distillery Airfield!\n");
-		displayUserMenu();
-		String userInput = sc.nextLine();
 		boolean keepGoing = true;
 		while (keepGoing) {
+			displayUserMenu();
+			String userInput = sc.nextLine();
 			switch (userInput) {
 			case "1":
-				AirField.listFleet();
+				airField.listFleet();
 				break;
 
 			case "2":
-				// TODO: call Fly method
+				airField.fly();
 				break;
 
 			case "3":
@@ -67,7 +67,7 @@ public class JetsApplication {
 	}
 
 	private void displayUserMenu() {
-		System.out.println(".........................................");
+		System.out.println("\n.........................................");
 		System.out.println(".\tWhat would you like to do?     \t.");
 		System.out.println(". 1. Print out the current fleet   \t.");
 		System.out.println(". 2. Fly all jets   \t\t\t.");
@@ -78,7 +78,7 @@ public class JetsApplication {
 		System.out.println(". 7. Add a new jet to the fleet   \t.");
 		System.out.println(". 8. Remove a jet from the fleet   \t.");
 		System.out.println(". 9. Exit the program   \t\t.");
-		System.out.println(".........................................");
+		System.out.println(".........................................\n");
 	}
 	
 	
