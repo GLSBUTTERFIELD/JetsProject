@@ -13,13 +13,12 @@ public class FighterJet extends Jet implements CombatReady {
 	@Override
 	public String toString() {
 		return "Fighter Jet [model: " + getModel() + ", speedInMPH: " + getSpeedInMPH() + ", range: "
-				+ getRange() + "miles, price: $ " + getPrice() + "]";
+				+ getRange() + " miles, price: $ " + getPrice() + "]";
 	}
 
 	@Override
 	public void fight() {
-		System.out.println(getModel() + " fighting! Pew Pew Pew!\n");
-		
+		System.out.println("\n" + getModel() + " fighting! Pew Pew Pew!");
 	}
 	
 }

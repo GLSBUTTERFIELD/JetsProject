@@ -53,7 +53,6 @@ public class AirField {
 		System.out.println("The fleet currently contains: \n");
 		for (int i = 0; i < fleet.size(); i++) {
 			System.out.println((i + 1) + ": " + fleet.get(i));
-
 		}
 	}
 
@@ -74,7 +73,7 @@ public class AirField {
 			}
 
 		}
-		System.out.println("The fastet jet in our fleet currently is " + fastestJet + ".\nThe " + fastestJet.getModel()
+		System.out.println("Currently, the fastet jet in our fleet is " + fastestJet + ".\nThe " + fastestJet.getModel()
 				+ " has a top speed of Mach" + fastestJet.getSpeedInMach());
 	}
 
@@ -88,11 +87,10 @@ public class AirField {
 			}
 
 		}
-		System.out.println("The jet with the longest range in our fleet currently is " + jetWithLongestRange + ".");
+		System.out.println("Currently, the jet with the longest range in our fleet is " + jetWithLongestRange + ".");
 	}
 
 	public void loadCargoJets() {
-
 		for (Jet jet : fleet) {
 			if (jet instanceof CargoJet) {
 				((CargoJet) jet).loadCargo();
@@ -110,25 +108,29 @@ public class AirField {
 
 	public void addJetToFleet(int jetType, String model, double speedInMPH, int range, long price) {
 		if (jetType == 1) {
-//			Passenger Jet
+			Jet j = new PassengerJet(model, speedInMPH, range, price);
+			fleet.add(j);
 		}
 
 		else if (jetType == 2) {
-//			Cargo Jet
-		}
+			Jet j = new CargoJet(model, speedInMPH, range, price);
+			fleet.add(j);		}
 
 		else if (jetType == 3) {
-			// fighter jet
+			Jet j = new FighterJet(model, speedInMPH, range, price);
+			fleet.add(j);
 		}
 
 		else {
 			System.out.println("Invalid input. Please enter a number 1-3.");
 		}
+		
+		System.out.println("\nYour " + fleet.getLast().getModel() + " jet has successfully been added to the fleet.");
 	}
 
 	public void removeJetFromFleet(int jetToRemove) {
 		fleet.remove(jetToRemove);
-		System.out.println("The jet " + fleet.get(jetToRemove) + " has been removed succesfully from the fleet.");
+		System.out.println("The jet " + fleet.get(jetToRemove) + " has succesfully been removed from the fleet.");
 	}
 
 	public int getSize() {
@@ -137,14 +139,4 @@ public class AirField {
 
 }
 
-//TODO: public methods for handling Jets
-
-// load all Cargo Jets
-	// iterate through fleet and use instanceof to see if I'm a Cargo Jet
-	// call loadCargo() method
-// Dogfight
-	// iterate through fleet and use instanceof to see if I'm a fighter Jet
-	// call fight() method
-// add Jet to fleet
-	// tell AirField to add to Fleet
 

@@ -2,8 +2,6 @@ package com.skilldistillery.jets.app;
 
 import java.util.Scanner;
 
-import com.skilldistillery.jets.entities.Jet;
-
 public class JetsApplication {
 
 	private AirField airField = new AirField();
@@ -17,7 +15,7 @@ public class JetsApplication {
 
 	private void launch() {
 
-		System.out.println("Welcome to the Skill Distillery Airfield!\n");
+		System.out.println("Welcome to the Skill Distillery Airfield!");
 		boolean keepGoing = true;
 		while (keepGoing) {
 			displayUserMenu();
@@ -48,34 +46,42 @@ public class JetsApplication {
 				break;
 
 			case "7":
-				displayJetTypeToAdd();
-				int userJetType = sc.nextInt();
-				sc.nextLine();
-				System.out.println("Please enter the model: ");
-				String userJetModel = sc.nextLine();
-				System.out.println("Please enter the jet's speed in MPH: ");
-				double userJetSpeed = sc.nextDouble();
-				sc.nextLine();
-				System.out.println("Please enter the jet's range in miles: ");
-				int userJetRange = sc.nextInt();
-				sc.nextLine();
-				System.out.println("Please enter the jet's price: ");
-				long userJetPrice = sc.nextLong();
+				boolean keepShowingListToAdd = true;
+				int userJetType = 0;
+				while (keepShowingListToAdd) {
+					try {
+						displayJetTypeToAdd();
+						userJetType = Integer.parseInt(sc.nextLine());
+						if ((userJetType == 1) || (userJetType == 2) || (userJetType == 3)) {
+							keepShowingListToAdd = false;
+						} else {
+							System.out.println("Invalid input. Please enter a number 1-3.");
+							keepShowingListToAdd = true;
+						}
+					} catch (Exception e) {
+						System.out.println("Invalid input. Please try again.");
+						keepShowingListToAdd = true;
+					}
+				}
 
-				airField.addJetToFleet(userJetType, userJetModel, userJetSpeed, userJetRange, userJetPrice);
+				String model = getJetModelFromUser();
+				double speed = getJetSpeedFromUser();
+				int range = getJetRangeFromUser();
+				long price = getJetPriceFromUser();
+				airField.addJetToFleet(userJetType, model, speed, range, price);
 
 				break;
 
 			case "8":
-				airField.listFleet();
-				System.out.println("\nWhich jet would you like to remove from the fleet?\n");
-				int jetToRemove = 0;
-				try {
-					jetToRemove = sc.nextInt();
-					sc.nextLine();
-					airField.removeJetFromFleet(jetToRemove);
-				} catch (Exception e) {
-					System.out.println("Invalid input. Please enter a number 1-" + airField.getSize() + ".");
+					airField.listFleet();
+					System.out.println("\nWhich jet would you like to remove from the fleet?");
+					int jetToRemove = 0;
+					try {
+						jetToRemove = sc.nextInt();
+						sc.nextLine();
+						airField.removeJetFromFleet(jetToRemove);
+					} catch (Exception e) {
+						System.out.println("Invalid input. Please enter a number 1-" + airField.getSize() + ".\n");
 				}
 				break;
 
@@ -90,6 +96,7 @@ public class JetsApplication {
 
 			}
 		}
+
 	}
 
 	private void displayUserMenu() {
@@ -116,4 +123,62 @@ public class JetsApplication {
 		System.out.println(".-----------------------------------.\n");
 	}
 
+	private String getJetModelFromUser() {
+		System.out.println("Please enter the jet's model: ");
+		return sc.nextLine();
+	}
+
+	private double getJetSpeedFromUser() {
+		double userSpeed = 0.0;
+		boolean keepLooping = true;
+		while (keepLooping) {
+			System.out.println("Please enter the jet's speed in MPH: ");
+			try {
+				userSpeed = sc.nextDouble();
+				sc.nextLine();
+				keepLooping = false;
+			} catch (Exception e) {
+				sc.nextLine();
+				System.out.println("Invalid input for speed. Please try again.");
+				keepLooping = true;
+			}
+		}
+		return userSpeed;
+	}
+
+	private int getJetRangeFromUser() {
+		int userRange = 0;
+		boolean keepLooping = true;
+		while (keepLooping) {
+			System.out.println("Please enter the jet's range in miles: ");
+			try {
+				userRange = sc.nextInt();
+				sc.nextLine();
+				keepLooping = false;
+			} catch (Exception e) {
+				sc.nextLine();
+				System.out.println("Invalid input for range. Please try again.");
+				keepLooping = true;
+			}
+		}
+		return userRange;
+	}
+
+	private long getJetPriceFromUser() {
+		long userPrice = 0;
+		boolean keepLooping = true;
+		while (keepLooping) {
+			System.out.println("Please enter the jet's price: ");
+			try {
+				userPrice = sc.nextLong();
+				sc.nextLine();
+				keepLooping = false;
+			} catch (Exception e) {
+				sc.nextLine();
+				System.out.println("Invalid input for price. Please try again.");
+				keepLooping = true;
+			}
+		}
+		return userPrice;
+	}
 }

@@ -13,12 +13,12 @@ public class CargoJet extends Jet implements CargoCarrier {
 	@Override
 	public String toString() {
 		return "Cargo Jet [model: " + getModel() + ", speedInMPH: " + getSpeedInMPH() + ", range: "
-				+ getRange() + "miles, price: $" + getPrice() + "]";
+				+ getRange() + " miles, price: $" + getPrice() + "]";
 	}
 
 	@Override
 	public void loadCargo() {
-		System.out.println("Loading Cargo Jet " + getModel() + " ... \n" + getModel() +  "... loaded and ready to fly.\n");
+		System.out.println("\nLoading Cargo Jet " + getModel() + " ... \n" + getModel() +  "... loaded and ready to fly.");
 	}
 
 
