@@ -30,6 +30,9 @@ The fleet dynamically adapts to added or removed jets, and if a user enters an i
 </ul>
 
 # Lessons Learned
+##### 11/23/24 updates:
+Instructor feedback pointed out that I was asking the user for a number from 1-N but then removing the jets from an ArrayList with a 0-based index. I updated my code so the JetsApplication passed 1 less than the number the user inputed, but found that the incorrect jet was being printed as being removed. That's because I was removing the jet and printing out that jet number's information without accounting for the fact that my ArrayList had been updated. I stored the jet that I removed in a new variable and then substituted that in for the removed jet's information, and it seems to be working correctly now.
+
 ##### Challenges:
 Taking user input from the JetsApplication class and passing it to the AirField class in order to create a new jet was hard for me (removing a jet was much easier). I first method-chained the multiple fields of a new jet, calling the getUserSpeed from the getUserModel method and so on, but that caused problems with returning values and getting input for the correct variable. Switching to calling each method individually allowed me to reassign the return values as variables and then pass that to my addJetToFleet method in the AirField class, which I wasn't able to do through linking them. 
 
