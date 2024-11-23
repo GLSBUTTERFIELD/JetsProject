@@ -129,8 +129,8 @@ public class AirField {
 	}
 
 	public void removeJetFromFleet(int jetToRemove) {
-		fleet.remove(jetToRemove);
-		System.out.println("The jet " + fleet.get(jetToRemove) + " has succesfully been removed from the fleet.");
+		Jet removedJet = fleet.remove(jetToRemove);
+		System.out.println("The jet " + removedJet + " has succesfully been removed from the fleet.");
 	}
 
 	public int getSize() {

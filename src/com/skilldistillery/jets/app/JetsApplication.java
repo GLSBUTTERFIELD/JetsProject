@@ -77,7 +77,7 @@ public class JetsApplication {
 					System.out.println("\nWhich jet would you like to remove from the fleet?");
 					int jetToRemove = 0;
 					try {
-						jetToRemove = sc.nextInt();
+						jetToRemove = (sc.nextInt() -1);
 						sc.nextLine();
 						airField.removeJetFromFleet(jetToRemove);
 					} catch (Exception e) {

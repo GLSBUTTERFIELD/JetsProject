@@ -13,7 +13,7 @@ public class FighterJet extends Jet implements CombatReady {
 	@Override
 	public String toString() {
 		return "Fighter Jet [model: " + getModel() + ", speedInMPH: " + getSpeedInMPH() + ", range: "
-				+ getRange() + " miles, price: $ " + getPrice() + "]";
+				+ getRange() + " miles, price: $" + getPrice() + "]";
 	}
 
 	@Override
